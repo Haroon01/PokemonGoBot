@@ -1,6 +1,5 @@
 # Folders
-/config/creds.ini
-/config/config.ini
+/config
 /venv
 /__pycache__/
 /.idea
