@@ -2,5 +2,6 @@
 /config/creds.ini
 /config/config.ini
 /venv
-/__pycache__
+/__pycache__/
 /.idea
+/bot/__pycache__
