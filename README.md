@@ -1,2 +1,2 @@
 # PokemonGoBot
-Reddit Bot
+Bot is still under development...
