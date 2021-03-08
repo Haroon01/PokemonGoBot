@@ -2,8 +2,11 @@ import praw
 import re
 import configparser
 import json
+from bot import scraper
 
-class Reddit:
+class Reddit(scraper):
+
+
     CONFIG_PATH = "./config/config.ini"
     CREDENTIALS_PATH = "./config/creds.ini"
 
@@ -37,6 +40,8 @@ class Reddit:
             return True
 
     def scan(self, sub):
+        scraper_class = scraper.Scraper() # initialise scraper class
+        raid_bosses = scraper_class.getRaidBoss() # grab a list of current raid bosses
         for comment in self.reddit.subreddit(sub).stream.comments(skip_existing = True):
             body = comment.body.lower()
             if comment.parent_id == comment.link_id: ## if comment is top level
@@ -44,6 +49,7 @@ class Reddit:
                 body_split = body.split(" ")
                 if self.check_for_code(comment, body) and body_split[1] == "[hostingraid]":
                     print("code found")
+
                 else:
                     print("no code found")
 
